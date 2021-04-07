@@ -1,0 +1,168 @@
+<!-- Equipe: Ana Carolina Guedes, Kamila Benevides e Natália de Assis -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    
+    <category>
+        <pattern>Oi</pattern>
+        <template>
+            Escolha entre: calça ou camisa.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>*</pattern>
+        <template>
+            <think><set name = "peça_escolhida"> <star/></set></think>
+            <srai>ESCOLHA DAS PEÇAS</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ESCOLHA DAS PEÇAS</pattern>
+        <template>
+                <condition name = "peça_escolhida" value="calça">
+                    Escolha um número de calça: 34, 36, 38, 40)
+                </condition>
+                <condition name = "peça_escolhida" value="camisa">
+                    Qual o tamanho da camisa? (P, M ou G)
+                </condition>
+        </template>
+    </category>
+    
+
+	<category>
+		<pattern>34</pattern>
+            <template>
+                <think><set name = "tam_calca">34</set></think>
+    		    <srai>TIPOCALÇA</srai>
+		    </template>
+	</category>
+	
+		<category>
+		<pattern>36</pattern>
+            <template>
+                <think><set name = "tam_calca">36</set></think>
+    		    <srai>TIPOCALÇA</srai>
+		    </template>
+	</category>
+	
+	<category>
+		<pattern>38</pattern>
+            <template>
+                <think><set name = "tam_calca">38</set></think>
+    		    <srai>TIPOCALÇA</srai>
+		    </template>
+	</category>
+	
+	<category>
+		<pattern>40</pattern>
+            <template>
+                <think><set name = "tam_calca">40</set></think>
+    		    <srai>TIPOCALÇA</srai>
+		    </template>
+	</category>
+	
+	<category>
+        <pattern>TIPOCALÇA</pattern>
+        <template>
+            Escolha um tipo de calça: slim fit, regular fit ou skinny fit.
+        </template>
+    </category>
+    
+    	<category>
+		<pattern>slim fit</pattern>
+            <template>
+                <think><set name = "tipo_calca">slim fit</set></think>
+    		    <srai>FIMCOMPRA</srai>
+		    </template>
+	</category>
+	
+	  
+	<category>
+		<pattern>regular fit</pattern>
+            <template>
+                <think><set name = "tipo_calca">regular fit</set></think>
+    		    <srai>FIMCOMPRA</srai>
+		    </template>
+	</category>
+	
+	<category>
+		<pattern>skinny fit</pattern>
+            <template>
+                <think><set name = "tipo_calca">skinny fit</set></think>
+    		    <srai>FIMCOMPRA</srai>
+		    </template>
+	</category>
+    
+    <category>
+		<pattern>P</pattern>
+            <template>
+                <think><set name = "tam_camisa">P</set></think>
+    		    <srai>GOLA</srai>
+		    </template>
+	</category>
+	
+    <category>
+		<pattern>M</pattern>
+            <template>
+                <think><set name = "tam_camisa">M</set></think>
+    		    <srai>GOLA</srai>
+		    </template>
+	</category>
+	
+    <category>
+		<pattern>G</pattern>
+            <template>
+                <think><set name = "tam_camisa">G</set></think>
+    		    <srai>GOLA</srai>
+		    </template>
+	</category>
+	
+	<category>
+        <pattern>GOLA</pattern>
+        <template>
+            Escolha um tipo de gola: V, redonda ou polo
+        </template>
+    </category>
+    
+    <category>
+		<pattern>V</pattern>
+            <template>
+                <think><set name = "tipo_gola">gola V</set></think>
+    		    <srai>FIMCOMPRA</srai>
+		    </template>
+	</category>
+	
+    <category>
+		<pattern>redonda</pattern>
+            <template>
+                <think><set name = "tipo_gola">gola redonda</set></think>
+    		    <srai>FIMCOMPRA</srai>
+		    </template>
+	</category>
+	
+    <category>
+		<pattern>polo</pattern>
+            <template>
+                <think><set name = "tipo_gola">gola polo</set></think>
+    		    <srai>FIMCOMPRA</srai>
+		    </template>
+	</category>
+    
+    	<category>
+        <pattern>FIMCOMPRA</pattern>
+        <template>
+            Sua compra foi finalizada,
+                <condition name = "peça_escolhida" value="calça">
+                    Tamanho: <get name = "tam_calca"/>
+                    Tipo: <get name = "tipo_calca"/>
+                </condition>
+                <condition name = "peça_escolhida" value="camisa">
+                    Tamanho: <get name = "tam_camisa"/>
+                    Tipo: <get name = "tipo_gola"/>
+                </condition>
+        </template>
+    </category>
+
+</aiml>
